@@ -1,0 +1,10 @@
+.home-page-img {
+    width: 100%;
+    height: 90vh;
+}
+
+@media (max-width: 1099px) {
+    .home-page-img {
+        height: auto;
+    }
+}
