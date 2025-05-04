@@ -1,5 +1,12 @@
-.wrapper {
+.header-wrapper {
     height: 10vh;
     background-color: black;
     width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.health-verse-logo {
+    height: 85px;
+    width: 85px;
 }

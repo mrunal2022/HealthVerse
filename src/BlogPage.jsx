@@ -1,22 +1,39 @@
-import React from 'react'
-import './BlogPage.scss';
-import { BlogCardItems } from './constants/HealthVerse.constants';
-import BlogCard from './BlogCard';
 import Pagination from '@mui/material/Pagination';
+import React, { useEffect, useState } from 'react';
+import BlogCard from './BlogCard';
+import './BlogPage.scss';
 
 const BlogPage = ({ clickedSideNavItem }) => {
-  console.log(clickedSideNavItem);
+  const [blogCardItems, setBlogCardItems] = useState(null);
+  const basePath = import.meta.env.VITE_API_BASE_PATH;
+
+  useEffect(() => {
+    fetch(`${basePath}/getBlogs`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok')
+        }
+        return res.json();
+      })
+      .then(data => {
+        setBlogCardItems(data);
+      })
+      .catch(error => {
+        console.log("fetch error", error);
+      });
+  }, []);// empty dependency array to run only only the component is mounted
+
   let filteredBlogs;
   if (clickedSideNavItem.id === 1) {
-    filteredBlogs = BlogCardItems;
+    filteredBlogs = blogCardItems;
   } else {
-    filteredBlogs = BlogCardItems.filter((item) => item.categoryId === clickedSideNavItem.id);
+    filteredBlogs = blogCardItems?.filter((item) => item.categoryId === clickedSideNavItem.id);
   }
   return (
     <div>
       <div className='blog-page-wrapper'>
         {
-          filteredBlogs.map((blog, index) => {
+          filteredBlogs?.map((blog, index) => {
             return <BlogCard key={index} blog={blog} />
           })
         }
