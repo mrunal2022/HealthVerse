@@ -44,3 +44,8 @@
   background: #e8cfae;
   background: linear-gradient(to right, rgba(232, 207, 174, 1) 0%, rgba(206, 228, 245, 1) 100%);
 }
+
+.blog-page-component {
+  display: flex;
+  align-items: end;
+}

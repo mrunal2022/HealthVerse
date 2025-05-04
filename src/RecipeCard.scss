@@ -1,0 +1,56 @@
+.recipe-card {
+    width: 100%;
+    min-height: 400px;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 75px;
+
+    .recipe-card-picture {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .recipe-card-content {
+
+        .recipe-card-font {
+            font-family: "Libre Baskerville", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+        }
+
+        .ingredient-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            line-height: 1.29 !important;
+        }
+
+        .recipe-card-header-font {
+            font-family: "Playfair Display", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 26px;
+            color: #843a3a;
+        }
+
+        .recipe-instructions{
+            line-height: 1.65 !important;
+            .instruction-number{
+                width: fit-content;
+            }
+        }
+
+        .recipe-card-content-font{
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 18px;
+            line-height: 1.6;
+            color: black;
+        }
+    }
+
+
+}

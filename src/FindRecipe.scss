@@ -1,0 +1,142 @@
+.find-recipe-wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-color: #f5d6c7;
+    z-index: 1;
+    overflow: hidden;
+    padding-top: 33px;
+}
+
+.find-recipe-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("https://img.freepik.com/premium-vector/seamless-pattern-cute-fruits-hand-drawn-doodle-oranges-apple-pear-watermelon_622847-44.jpg?semt=ais_hybrid&w=740");
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.find-recipe-desc {
+    margin-left: 27px;
+    width: 85%;
+    font-family: "Sofia Sans Semi Condensed", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: normal;
+    margin-bottom: 60px;
+}
+
+.find-recipe-header-text {
+    font-family: "Philosopher", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 45px;
+    margin-left: 27px;
+    margin-bottom: 15px;
+}
+
+.left-filters {
+    background-color: white;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    align-items: center;
+    margin-left: 37px;
+    height: fit-content;
+}
+
+.MuiFormControl-root {
+    margin: 0px !important;
+}
+
+.recipe-text-field {
+    margin-bottom: 38px;
+}
+
+.cuisine-multi-select-dropdown {
+    margin-bottom: 38px;
+}
+
+.diet-multi-select-dropdown {
+    margin-bottom: 38px;
+}
+
+.ingredients-text-field {
+    margin-bottom: 38px;
+}
+
+.meal-type-multi-select-dropdown {
+    margin-bottom: 38px;
+}
+
+.min-max-containers {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 38px;
+}
+
+.btn {
+    border: 2px solid 843a3a;
+    background-color: #ffe2e2;
+    color: 843a3a;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search-recipe {
+    border-color: #843a3a;
+    color: #843a3a;
+}
+
+.search-recipe:hover {
+    background-color: #f2b3b3 ;
+    color: white ;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 45px;
+}
+
+.search-recipe:hover {
+    border-color: #843a3a;
+    color: #843a3a;
+}
+
+.recipe-content-wrapper {
+    display: flex;
+    gap: 110px
+}
+
+.align-center {
+    display: flex;
+    justify-content: center;
+}
+
+.filter-width {
+    width: 180px;
+}
+
+.filter-width-small{
+    width: 80px;
+}
+.recipe-pic{
+    width: 400px;
+    height: 350px;  
+}
+
+@media (min-width: 1600px) {
+    .filter-width {
+        width: 240px;
+    }
+    
+    .filter-width-small{
+        width: 107px;
+    }
+  }

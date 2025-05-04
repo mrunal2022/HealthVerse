@@ -7,6 +7,7 @@ import BlogPage from './BlogPage';
 import React, { useState } from 'react';
 import Footer from './Footer';
 import BlogItem from './BlogItem';
+import FindRecipe from './FindRecipe';
 
 function App() {
 
@@ -16,7 +17,6 @@ function App() {
   });
 
   const handleSideNavClick=(item)=>{
-    // console.log(item);
     setClickedSideNavItem(item);
   }
 
@@ -43,6 +43,7 @@ function App() {
           />
           <Route path="*" element={<Navigate to="/blog" />} />
           <Route path="/blog/:id" element={<BlogItem />} />
+          <Route path="/findRecipe" element={<FindRecipe />} />
         </Routes>
         <Footer/>
       </Router>

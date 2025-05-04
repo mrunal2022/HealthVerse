@@ -4,12 +4,19 @@ import './BlogItem.scss'
 
 const BlogItem = () => {
   let { selectedBlog } = useContext(BlogContext);
-  const selectedBlogSession = sessionStorage.getItem('selectedBlog');
-  if (!selectedBlog && selectedBlogSession) {
-    selectedBlog = JSON.parse(selectedBlogSession);
+  
+  const retainBlogOnReload = () => {
+    const selectedBlogSession = sessionStorage.getItem('selectedBlog');
+    if (!selectedBlogSession) {
+      sessionStorage.setItem('selectedBlog', JSON.stringify(selectedBlog));
+    }
+    else if (!selectedBlog) {
+      selectedBlog = JSON.parse(selectedBlogSession);
+    }
   }
 
-  console.log(selectedBlog, "********")
+  retainBlogOnReload();
+
   return (
     <div className='blog-item-wrapper'>
       <div className='white-container'>

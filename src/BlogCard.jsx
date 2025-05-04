@@ -27,7 +27,7 @@ const BlogCard = ({ blog }) => {
                     </div>
                 </div>
             </div>
-            <div className='btn-wrapper'>
+            <div className='blog-btn-wrapper'>
                 <button className="btn read-more" onClick={() => onReadMore(blog)}>Read More</button>
             </div>
         </div>
