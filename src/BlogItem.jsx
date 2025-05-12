@@ -1,10 +1,17 @@
 import React, { useContext } from 'react'
 import { BlogContext } from './context/BlogContext'
+import { useEffect } from 'react'
 import './BlogItem.scss'
+import { useNavigate } from 'react-router-dom';
 
 const BlogItem = () => {
+  const navigate = useNavigate();
   let { selectedBlog } = useContext(BlogContext);
-  
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
+
   const retainBlogOnReload = () => {
     const selectedBlogSession = sessionStorage.getItem('selectedBlog');
     if (!selectedBlogSession) {
@@ -17,6 +24,11 @@ const BlogItem = () => {
 
   retainBlogOnReload();
 
+  const recommendedRecipes = () => {
+    const isFromHeader = false;
+    navigate('/findRecipe', { state: { isFromHeader } });
+  }
+
   return (
     <div className='blog-item-wrapper'>
       <div className='white-container'>
@@ -28,6 +40,9 @@ const BlogItem = () => {
           className="blog-item-desc desc-font"
           dangerouslySetInnerHTML={{ __html: selectedBlog?.desc }}
         ></div>
+        <button className="btn" onClick={recommendedRecipes}>
+          Recommended Recipes
+        </button>
       </div>
     </div>
   )

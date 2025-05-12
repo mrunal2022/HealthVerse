@@ -79,7 +79,7 @@
     margin-bottom: 38px;
 }
 
-.btn {
+.search-recipe {
     border: 2px solid 843a3a;
     background-color: #ffe2e2;
     color: 843a3a;
@@ -109,9 +109,16 @@
     color: #843a3a;
 }
 
+.right-recipe-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .recipe-content-wrapper {
     display: flex;
-    gap: 110px
+    gap: 110px;
+    margin-bottom: 60px;
 }
 
 .align-center {

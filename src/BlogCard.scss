@@ -46,18 +46,15 @@
     text-overflow: ellipsis;
 }
 
-.btn {
+.read-more {
+    border-color: #843a3a;
+    color: #843a3a;
     border: 2px solid 843a3a;
     background-color: white;
     color: 843a3a;
     padding: 14px 28px;
     font-size: 16px;
     cursor: pointer;
-}
-
-.read-more {
-    border-color: #843a3a;
-    color: #843a3a;
 }
 
 .blog-btn-wrapper{

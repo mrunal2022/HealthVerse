@@ -4,9 +4,39 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .health-verse-logo {
-    height: 85px;
-    width: 85px;
+    height: 7vh;
+    width: 7vh;
+}
+
+.header-logo {
+    cursor: pointer;
+    display: flex;
+}
+
+.healthverse-title {
+    height: 7vh;
+    width: 23vh;
+    margin-bottom: 12px;
+    margin-left: 8px;
+}
+
+.find-your-recipe {
+    border-color: #843a3a;
+    color: white;
+    border: 2px solid white;
+    background-color: black;
+    padding: 12px 28px;
+    margin-right: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.find-your-recipe:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
 }
