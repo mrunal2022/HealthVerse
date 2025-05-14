@@ -40,9 +40,13 @@ const BlogItem = () => {
           className="blog-item-desc desc-font"
           dangerouslySetInnerHTML={{ __html: selectedBlog?.desc }}
         ></div>
-        <button className="btn" onClick={recommendedRecipes}>
-          Recommended Recipes
-        </button>
+        {selectedBlog?.recommendedRecipe && (
+          <div className='recommended-recipe-btn-wrapper'>
+            <button className="btn recommended-recipe-btn" onClick={recommendedRecipes}>
+              Recommended Recipes
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )

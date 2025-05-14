@@ -1,46 +1,57 @@
 .blog-item-wrapper {
-    background-color: #fcfbbb;
-    background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .white-container {
-    background-color: white;
-    height: inherit; 
-    width: 50%;     
-    padding: 50px 70px 70px 70px;
-  }
-
-  .blog-item-title{
-    font-family: "Philosopher", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 45px;
-  }
-
-  .blog-item-img-wrapper{
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-  }
-
-  .blog-item-img{
-    height: 382px;
-    width: 487px;
-  }
-
-  .blog-item-desc{
-    margin-top: 75px;
-  }
-
-  .desc-font {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 19px;
-    line-height: 1.6;
-    color: black;
+  background-color: #fcfbbb;
+  background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
-  
+
+.white-container {
+  background-color: white;
+  height: inherit;
+  width: 50%;
+  padding: 50px 70px 70px 70px;
+}
+
+.blog-item-title {
+  font-family: "Philosopher", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 45px;
+}
+
+.blog-item-img-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.blog-item-img {
+  height: 382px;
+  width: 487px;
+}
+
+.blog-item-desc {
+  margin-top: 75px;
+}
+
+.desc-font {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 1.6;
+  color: black;
+}
+
+.recommended-recipe-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  .recommended-recipe-btn {
+    background-color: #fffbcc;
+    border: 1px solid orange;
+    border-radius: 5px;
+  }
+}
