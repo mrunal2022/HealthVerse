@@ -13,6 +13,7 @@ import RecipeCard from './RecipeCard';
 import { BlogContext } from './context/BlogContext'
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -109,9 +110,10 @@ const FindRecipe = () => {
   const [showSelectFiltersMsg, setShowSelectFiltersMsg] = useState(true);
   const [showNoDataMsg, setShowNoDataMsg] = useState(false);
   const [initializedForm, setInitializedForm] = useState(false);
-  const carbError = minCarbs !== '' && maxCarbs !== '' && Number(minCarbs) > Number(maxCarbs);
-  const proteinError = minProtein !== '' && maxProtein !== '' && Number(minProtein) > Number(maxProtein);
-  const caloriesError = minCalories !== '' && maxCalories !== '' && Number(minCalories) > Number(maxCalories);
+  const [showLoader, setShowLoader] = useState(false);
+  const carbError = minCarbs && maxCarbs && Number(minCarbs) > Number(maxCarbs);
+  const proteinError = minProtein && maxProtein && Number(minProtein) > Number(maxProtein);
+  const caloriesError = minCalories && maxCalories && Number(minCalories) > Number(maxCalories);
 
   useEffect(() => {
     if (!isFromHeader && selectedBlog?.recommendedRecipe) {
@@ -205,7 +207,7 @@ const FindRecipe = () => {
     setShowSelectFiltersMsg(false);
     const recipeParams = {
       recipe: recipeName,
-      cuisine: Array.isArray(cuisineName) && cuisineName?.length > 0 ? cuisineName.join(',') : null,
+      cuisine: Array.isArray(cuisineName) && cuisineName?.length > 0 ? cuisineName?.join(',') : null,
       ingredients: ingredientName,
       minCarbs: minCarbs,
       maxCarbs: maxCarbs,
@@ -213,13 +215,14 @@ const FindRecipe = () => {
       maxProtein: maxProtein,
       minCalories: minCalories,
       maxCalories: maxCalories,
-      diet: Array.isArray(dietName) && dietName?.length > 0 ? dietName.join(',') : null,
-      mealType: Array.isArray(mealTypeName) && mealTypeName?.length > 0 ? mealTypeName.join(',') : null,
+      diet: Array.isArray(dietName) && dietName?.length > 0 ? dietName?.join(',') : null,
+      mealType: Array.isArray(mealTypeName) && mealTypeName?.length > 0 ? mealTypeName?.join(',') : null,
       instructionsRequired: true,
       addRecipeInformation: true,
       addRecipeInstructions: true,
     };
 
+    setShowLoader(true);
     fetch(`${basePath}/getRecipes?recipeParams=${JSON.stringify(recipeParams)}`)
       .then(res => {
         if (!res.ok) {
@@ -236,8 +239,10 @@ const FindRecipe = () => {
         setShowNoDataMsg(false);
         setRecipeData(data);
         prepareRecipeCardsData(data);
+        setShowLoader(false);
       })
       .catch(error => {
+        setShowLoader(false);
         console.log("fetch error", error);
       })
   }
@@ -360,7 +365,7 @@ const FindRecipe = () => {
             </div>
             <div className='min-max-containers'>
               <TextField type='number' id="minProtein" label="Min Protein" variant="outlined" value={minProtein ?? ''} className="filter-width-small" title='Min Protein' onInput={(e) => handleInputChange('minProtein', e.target.value)} error={proteinError} helperText={proteinError ? "Min protein should not be greater than max protein" : ''} />
-              <TextField type='number' id="maxProtein" label="Max Protein" variant="outlined" value={maxProtein ??''} className="filter-width-small" title='Max Protein' onInput={(e) => handleInputChange('maxProtein', e.target.value)} error={proteinError} helperText={proteinError ? "Max protein should not be less than min protein" : ''} />
+              <TextField type='number' id="maxProtein" label="Max Protein" variant="outlined" value={maxProtein ?? ''} className="filter-width-small" title='Max Protein' onInput={(e) => handleInputChange('maxProtein', e.target.value)} error={proteinError} helperText={proteinError ? "Max protein should not be less than min protein" : ''} />
             </div>
             <div className='min-max-containers mb-0'>
               <TextField type='number' id="minCalories" label="Min Calories" variant="outlined" value={minCalories ?? ''} className="filter-width-small" title='Min Calories' onInput={(e) => handleInputChange('minCalories', e.target.value)} error={caloriesError} helperText={caloriesError ? "Min calories should not be greater than max calories" : ''} />
@@ -371,18 +376,28 @@ const FindRecipe = () => {
             </div>
           </div>
           {(showSelectFiltersMsg || showNoDataMsg) ? (
-            <div className='right-recipe-card col-8'>
+            <div className='no-data-card col-8'>
               <img
                 src={showNoDataMsg ? "/assets/no-data.png" : "/assets/generate-your-recipe.png"}
                 alt=""
-                style={{ width: '60vh', height: '60vh' }}
+                className='no-data-img'
               />
+              {showLoader && (
+                <div className='spinner'>
+                  <CircularProgress color="success" size="5rem" />
+                </div>
+              )}
             </div>
           ) : (
-            <div className='col-8'>
+            <div className='col-8 right-recipe-card'>
               {recipeCards.map((recipe, index) => (
                 <RecipeCard key={index} recipeCard={recipe} />
               ))}
+              {showLoader && (
+                <div className='spinner'>
+                  <CircularProgress color="success" size="5rem" />
+                </div>
+              )}
             </div>
           )}
         </div>

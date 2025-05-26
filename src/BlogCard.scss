@@ -67,3 +67,26 @@
     border-color: #843a3a;
     color: #843a3a;
   }
+
+
+@media (max-width: 1000px) {
+  .blog-card .d-flex {
+    flex-direction: column;
+  }
+
+  .blog-card-left-section {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .blog-card-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .blog-card-right-section {
+    width: 100%;
+    margin-left: 0px;
+  }
+}

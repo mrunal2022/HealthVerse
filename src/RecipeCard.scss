@@ -5,52 +5,86 @@
     padding: 20px;
     margin-bottom: 75px;
 
-    .recipe-card-picture {
+    .recipe-card-container {
         display: flex;
-        align-items: center;
 
+        .recipe-card-picture {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .recipe-card-content {
+
+            .recipe-card-font {
+                font-family: "Libre Baskerville", serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 30px;
+            }
+
+            .ingredient-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                line-height: 1.29 !important;
+            }
+
+            .recipe-card-header-font {
+                font-family: "Playfair Display", serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 26px;
+                color: #843a3a;
+            }
+
+            .recipe-instructions {
+                line-height: 1.65 !important;
+
+                .instruction-number {
+                    width: fit-content;
+                }
+            }
+
+            .recipe-card-content-font {
+                font-family: "Roboto", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 18px;
+                line-height: 1.6;
+                color: black;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 1000px) {
+
+    .recipe-card-container {
+        flex-direction: column !important;
+        margin: 0px !important;
     }
 
     .recipe-card-content {
-
-        .recipe-card-font {
-            font-family: "Libre Baskerville", serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 30px;
-        }
-
-        .ingredient-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            line-height: 1.29 !important;
-        }
-
-        .recipe-card-header-font {
-            font-family: "Playfair Display", serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 26px;
-            color: #843a3a;
-        }
-
-        .recipe-instructions{
-            line-height: 1.65 !important;
-            .instruction-number{
-                width: fit-content;
-            }
-        }
-
-        .recipe-card-content-font{
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 18px;
-            line-height: 1.6;
-            color: black;
-        }
+        width: 100% !important;
+        padding-left: 20px !important;
+        padding-top: 34px;
     }
 
+    .recipe-card-font {
+        font-size: 27px !important;
+    }
 
+    .recipe-card-header-font {
+        font-size: 24px !important;
+    }
+
+    .recipe-card-picture {
+        width: 100% !important;
+    }
+
+    .recipe-content-wrapper {
+        justify-content: center;
+    }
 }

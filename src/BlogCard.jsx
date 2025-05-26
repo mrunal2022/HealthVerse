@@ -22,8 +22,8 @@ const BlogCard = ({ blog }) => {
                     <div className='blog-card-title mb-3 header-font'>
                         {blog.title}
                     </div>
-                    <div className='blog-card-desc desc-font'>
-                        {blog.desc}
+                    <div className='blog-card-desc desc-font'
+                      dangerouslySetInnerHTML=  {{__html:blog?.desc}}>
                     </div>
                 </div>
             </div>
