@@ -234,6 +234,7 @@ const FindRecipe = () => {
         if (data?.results?.length === 0) {
           setShowNoDataMsg(true);
           setRecipeCards([]);
+          setShowLoader(false);
           return;
         }
         setShowNoDataMsg(false);
@@ -375,31 +376,27 @@ const FindRecipe = () => {
               <button className="btn search-recipe" type="submit" disabled={carbError || caloriesError || proteinError}>Search Recipe</button>
             </div>
           </div>
-          {(showSelectFiltersMsg || showNoDataMsg) ? (
-            <div className='no-data-card col-8'>
-              <img
-                src={showNoDataMsg ? "/assets/no-data.png" : "/assets/generate-your-recipe.png"}
-                alt=""
-                className='no-data-img'
-              />
-              {showLoader && (
-                <div className='spinner'>
-                  <CircularProgress color="success" size="5rem" />
-                </div>
-              )}
-            </div>
-          ) : (
-            <div className='col-8 right-recipe-card'>
-              {recipeCards.map((recipe, index) => (
-                <RecipeCard key={index} recipeCard={recipe} />
-              ))}
-              {showLoader && (
-                <div className='spinner'>
-                  <CircularProgress color="success" size="5rem" />
-                </div>
-              )}
-            </div>
-          )}
+          <div className='col-8'>
+            {showLoader ? (
+              <div className='spinner'>
+                <CircularProgress color="success" size="5rem" />
+              </div>
+            ) : (showSelectFiltersMsg || showNoDataMsg) ? (
+              <div className='no-data-card'>
+                <img
+                  src={showNoDataMsg ? "/assets/no-data.png" : "/assets/generate-your-recipe.png"}
+                  alt=""
+                  className='no-data-img'
+                />
+              </div>
+            ) : (
+              <div className='right-recipe-card'>
+                {recipeCards.map((recipe, index) => (
+                  <RecipeCard key={index} recipeCard={recipe} />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </form>
       <Snackbar

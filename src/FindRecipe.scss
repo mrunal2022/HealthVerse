@@ -161,6 +161,12 @@
     }
 }
 
+@media (max-width:1500px) {
+     .find-your-recipe {
+        padding: 6px 18px !important;
+    }
+}
+
 @media (max-width: 1000px) {
     .right-recipe-card {
         width: 90% !important;
