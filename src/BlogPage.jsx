@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import BlogCard from './BlogCard';
 import './BlogPage.scss';
 
 const BlogPage = ({ clickedSideNavItem }) => {
+  console.log("clickedSideNavItem", clickedSideNavItem);
   const [blogCardItems, setBlogCardItems] = useState([]);
   const [cursor, setCursor] = useState(null);
   const [hasMore, setHasMore] = useState(true);
@@ -67,7 +68,7 @@ const BlogPage = ({ clickedSideNavItem }) => {
         ) {
           fetchBlogs(clickedSideNavItem.id, cursor);
         }
-      }, 1000); // Debounce delay
+      }, 500); // Debounce delay
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -79,7 +80,7 @@ const BlogPage = ({ clickedSideNavItem }) => {
       {blogCardItems.map((blog, index) => (
         <BlogCard key={index} blog={blog} />
       ))}
-      {loading&& <div className="loader"><img src="public/assets/blog-loader.webp" alt="loader" /></div> }
+      {loading && <div className="loader"><img src="public/assets/blog-loader.webp" alt="loader" /></div>}
     </div>
   );
 };
