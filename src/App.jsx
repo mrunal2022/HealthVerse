@@ -17,7 +17,7 @@ function App() {
   });
 
   const handleSideNavClick=(item)=>{
-    setClickedSideNavItem(item);
+    setClickedSideNavItem({...item});
   }
 
   return (
@@ -35,7 +35,7 @@ function App() {
                     <SideNav onItemClick={handleSideNavClick}/>
                   </div>
                   <div className='blog-page-component'>
-                    <BlogPage clickedSideNavItem={clickedSideNavItem}/>
+                    <BlogPage clickedSideNavItem={clickedSideNavItem} key={clickedSideNavItem.id}/>
                   </div>
                 </div>
               </>
