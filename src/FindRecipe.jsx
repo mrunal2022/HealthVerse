@@ -376,7 +376,7 @@ const FindRecipe = () => {
               <button className="btn search-recipe" type="submit" disabled={carbError || caloriesError || proteinError}>Search Recipe</button>
             </div>
           </div>
-          <div className='col-8'>
+          <div className='col-8 right-recipe-wrapper'>
             {showLoader ? (
               <div className='spinner'>
                 <CircularProgress color="success" size="5rem" />

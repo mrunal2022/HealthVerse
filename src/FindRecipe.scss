@@ -162,14 +162,20 @@
 }
 
 @media (max-width:1500px) {
-     .find-your-recipe {
+    .find-your-recipe {
         padding: 6px 18px !important;
     }
 }
 
 @media (max-width: 1000px) {
     .right-recipe-card {
-        width: 90% !important;
+        width: 88% !important;
+    }
+
+    .right-recipe-wrapper {
+        display: flex;
+        width: 100% !important;
+        justify-content: center;
     }
 
     .left-filters {
