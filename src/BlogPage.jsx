@@ -3,7 +3,6 @@ import BlogCard from './BlogCard';
 import './BlogPage.scss';
 
 const BlogPage = ({ clickedSideNavItem }) => {
-  console.log("clickedSideNavItem", clickedSideNavItem);
   const [blogCardItems, setBlogCardItems] = useState([]);
   const [cursor, setCursor] = useState(null);
   const [hasMore, setHasMore] = useState(true);
