@@ -4,11 +4,24 @@
     margin: 20px 0 20px 0;
 }
 
+.blog-page-wrapper {
+    min-width: 784px;
+    min-height: 512px;
+}
+
 .loader {
     display: flex;
     justify-content: center;
     margin: 20px 0 20px 0;
-    img{
+
+    img {
         width: 52px;
+    }
+}
+
+@media (max-width: 890px) {
+    .blog-page-wrapper {
+        min-width: fit-content !important;
+        min-height: fit-content !important;
     }
 }

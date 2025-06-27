@@ -48,6 +48,7 @@
 .blog-page-component {
   display: flex;
   align-items: end;
+  justify-content: center;
 }
 
 @media (max-width: 1000px) {

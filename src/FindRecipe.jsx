@@ -89,6 +89,10 @@ const mealTypes = [
 
 
 const FindRecipe = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
+
   const location = useLocation();
   const { isFromHeader } = location.state || {};
   let { selectedBlog } = useContext(BlogContext);
