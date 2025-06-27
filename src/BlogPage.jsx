@@ -79,7 +79,7 @@ const BlogPage = ({ clickedSideNavItem }) => {
       {blogCardItems.map((blog, index) => (
         <BlogCard key={index} blog={blog} />
       ))}
-      {loading && <div className="loader"><img src="public/assets/blog-loader.webp" alt="loader" /></div>}
+      {loading && <div className="loader"><img src="/assets/blog-loader.webp" alt="loader" /></div>}
     </div>
   );
 };
